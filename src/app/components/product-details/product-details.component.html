@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 left">
+      <img [src]="product[1]?.imgurl" alt="">
+    </div>
+    <div class="col-6 right">
+      <h4>Product Name</h4>
+      <h3>{{product[1]?.title}}</h3>
+      <h4>Price</h4>
+      <h3>{{product[1]?.price | currency}}</h3>
+      <h4>Ctegory</h4>
+      <h3>{{+product[1]?.category | categories}}</h3>
+      <button class="btn btn-outline-primary d-block my-2" (click)="useAddToCart(product); notification('add')">
+        <!-- <fa-icon [icon]="faCartPlus"></fa-icon> -->
+        Add To Cart
+      </button>
+      <a class="btn btn-outline-danger d-block my-2" routerLink="/store">
+        <!-- <fa-icon [icon]="faCartPlus"></fa-icon> -->
+        Go Back
+      </a>
+    </div>
+  </div>
+</div>
+
+<h1
+  class="notification"
+  [style.backgroundColor]="notificationColor"
+  *ngIf="notificationShown"
+>
+  {{ notificationContent }}
+</h1>

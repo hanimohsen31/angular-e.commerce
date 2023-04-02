@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <form [formGroup]="EditProduct" (ngSubmit)="submitEditProductForm(EditProduct)" class="col-sm-12 col-md-7">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input required formControlName="title" type="text" class="form-control" id="title" />
+      </div>
+
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input required formControlName="price" type="number" class="form-control" id="price" />
+      </div>
+
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select required formControlName="category" type="text" class="form-control" id="category">
+          <option *ngFor="let cat of categories" value={{cat.value}}>{{cat.title}}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="imgurl" class="form-label">Image URL</label>
+        <input required formControlName="imgurl" type="url" class="form-control" id="imgurl" />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="card col-sm-12 col-md-4" >
+      <img src={{EditProduct.value.imgurl}} >
+      <div class="card-body">
+        <h5 class="card-title">Title: {{EditProduct.value.title }}</h5>
+        <p class="card-text">Price: {{EditProduct.value.price| currency }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>

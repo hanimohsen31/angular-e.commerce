@@ -1,0 +1,156 @@
+@import "../../../styles.scss";
+
+.container {
+  // height: 10vh;
+  .iconsAndTextWrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 75px;
+    margin-bottom: 75px;
+    @include mediaQuery(mobile) {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    @include mediaQuery(small) {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    .iconsAndText {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 50px;
+        @include mediaQuery(mobile) {
+          height: 30px;
+        }
+        @include mediaQuery(small) {
+          height: 30px;
+        }
+      }
+      h3 {
+        font-size: 20px;
+        margin: 0;
+        margin-top: 20px;
+        @include mediaQuery(mobile) {
+          font-size: 16px;
+          margin-top: 10px;
+          font-weight: 400;
+        }
+        @include mediaQuery(small) {
+          font-size: 16px;
+          margin-top: 10px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  .headingWrapper {
+    text-align: center;
+    margin: 100px auto 75px auto;
+    @include mediaQuery(mobile) {
+      margin: 0;
+    }
+    @include mediaQuery(small) {
+      margin: 0;
+    }
+    h2 {
+      font-size: 40px;
+      font-weight: 400;
+    }
+    p {
+      font-size: 18px;
+      margin-top: 17px;
+      opacity: 0.6;
+    }
+  }
+  .categoriesWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    a {
+      color: black;
+      text-decoration: none;
+    }
+  }
+  .productsWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    a {
+      color: black;
+      text-decoration: none;
+    }
+  }
+  .paymentWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 80px;
+    @include mediaQuery(mobile) {
+      margin-top: 35px;
+    }
+    @include mediaQuery(small) {
+      margin-top: 35px;
+    }
+    .ico {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include mediaQuery(mobile) {
+        margin-bottom: 20px;
+      }
+      @include mediaQuery(small) {
+        margin-bottom: 20px;
+      }
+      // @include mediaQuery(large) {
+      //   font-size: 20px;
+      // }
+      // @include mediaQuery(xlarge) {
+      //   font-size: 22px;
+      // }
+      img {
+        height: 60px;
+      }
+      .text {
+        margin: 0;
+        margin-left: 25px;
+        h1 {
+          margin: 0;
+          font-size: 30px;
+          font-weight: 600;
+          @include mediaQuery(mobile) {
+            font-size: 18px;
+          }
+          @include mediaQuery(small) {
+            font-size: 18px;
+          }
+        }
+        p {
+          margin: 0;
+          margin-top: 10px;
+          font-size: 18px;
+          @include mediaQuery(mobile) {
+            font-size: 15px;
+          }
+          @include mediaQuery(small) {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+  margin-bottom: 100px;
+  @include mediaQuery(mobile) {
+    margin-bottom: 50px;
+  }
+  @include mediaQuery(small) {
+    margin-bottom: 50px;
+  }
+}

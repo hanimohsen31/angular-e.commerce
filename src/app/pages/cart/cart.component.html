@@ -1,0 +1,130 @@
+<div class="cartContainer container position-relative">
+  <div class="header">
+    <h1>Shopping Cart</h1>
+    <!-- <p *ngIf="cartCounter > 0">
+      you have {{ cartCounter }} items in your shopping cart.
+    </p> -->
+  </div>
+
+  <div class="newView" *ngIf="totalSum > 0">
+    <div
+      class="cartItemContainer"
+      *ngFor="let item of cartArray; let i = index"
+    >
+      <div class="img" *ngIf="item?.quantity > 0">
+        <img [src]="item.product?.imgurl" alt="" />
+      </div>
+
+      <div class="center" *ngIf="item?.quantity > 0">
+        <h1>{{ item.product?.title }}</h1>
+        <p>
+          Price: <span>{{ item.product?.price | currency }}</span>
+        </p>
+      </div>
+      <div class="right" *ngIf="item?.quantity > 0">
+        <div class="controls">
+          <button
+            class="bg-light px-3 py-2"
+            (click)="useDeleteFromCart(item.product); notification('delete')"
+          >
+            -
+          </button>
+          <span class="mb-0 mx-3">
+            {{ item.quantity }}
+          </span>
+          <button
+            class="bg-light px-3 py-2"
+            (click)="useAddToCart(item.product); notification('add')"
+          >
+            +
+          </button>
+        </div>
+        <div class="overall">
+          <span>Quantity&#160;Price</span>
+          <span>
+            {{ item.product?.price * item?.quantity | currency }}
+          </span>
+        </div>
+      </div>
+      <hr *ngIf="item?.quantity > 0" />
+    </div>
+    <div class="overall text-end d-flex flex-column">
+      <span class="h2 m-1">Overall&#160;Price</span>
+      <span class="h1 fw-bold">
+        {{ totalSum | currency }}
+      </span>
+    </div>
+    <div class="checkout text-end">
+      <a routerLink="/check-out" class="btn bg-light py-2 px-4">CheckOut</a>
+    </div>
+  </div>
+
+  <!-- <table class="table" *ngIf="totalSum > 0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Image</th>
+        <th scope="col">Item</th>
+        <th scope="col">Price</th>
+        <th scope="col"></th>
+        <th scope="col">Quantity</th>
+        <th scope="col"></th>
+        <th scope="col">Quantity Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartArray; let i = index">
+        <th *ngIf="item?.quantity > 0" scope="row">{{ i + 1 }}</th>
+        <td *ngIf="item?.quantity > 0"><img [src]="item.product?.imgurl" /></td>
+        <td *ngIf="item?.quantity > 0">{{ item.product?.title }}</td>
+        <td *ngIf="item?.quantity > 0">{{ item.product?.price | currency }}</td>
+
+        <td *ngIf="item?.quantity > 0">
+          <button
+            class="btn btn-outline-danger"
+            (click)="useDeleteFromCart(item.product); notification('delete')"
+          >
+            -
+          </button>
+        </td>
+        <td *ngIf="item?.quantity > 0">{{ item.quantity }}</td>
+
+        <td *ngIf="item?.quantity > 0">
+          <button
+            class="btn btn-outline-primary"
+            (click)="useAddToCart(item.product); notification('add')"
+          >
+            +
+          </button>
+        </td>
+        <td *ngIf="item?.quantity > 0">
+          {{ item.product?.price * item?.quantity | currency }}
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr style="border: transparent">
+        <th></th>
+        <th></th>
+        <th>Total Price:</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>{{ totalSum | currency }}</th>
+      </tr>
+    </tfoot>
+  </table> -->
+
+  <!-- no cart -->
+  <div *ngIf="totalSum == 0" class="imgContainer">
+    <img class="emptyCart" src="https://images2.imgbox.com/70/b1/FZYPF3BM_o.png" />
+  </div>
+</div>
+<h1
+  class="notification"
+  [style.backgroundColor]="notificationColor"
+  *ngIf="notificationShown"
+>
+  {{ notificationContent }}
+</h1>

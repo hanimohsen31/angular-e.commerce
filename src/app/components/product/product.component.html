@@ -1,0 +1,8 @@
+<div class="product">
+  <div class="imgContainer">
+    <img [src]="img" alt="" />
+  </div>
+  <h2>{{ title }}</h2>
+  <p>{{ prcie |currency }}</p>
+  <button class="btn" (click)="useAddToCart(product)">Add to Cart</button>
+</div>

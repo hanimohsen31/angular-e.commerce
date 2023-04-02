@@ -1,0 +1,28 @@
+<div class="container">
+  <form action="">
+    <input (keyup)="filter(search)" #search type="text" placeholder="Search" class="form-control my-2">
+  </form>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Price</th>
+        <th scope="col">Category</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products; index as index" >
+        <th scope="row">{{index+1}}</th>
+        <td>{{product[1].title}}</td>
+        <td>{{product[1].price | currency}}</td>
+        <td>{{+product[1].category | categories}}</td>
+        <td><a [routerLink]="['/admin-product-form-edit/',product[0]]" class="btn btn-primary">Edit</a></td>
+        <td><button (click)="deleteProduct(product[0])"  class="btn btn-danger">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

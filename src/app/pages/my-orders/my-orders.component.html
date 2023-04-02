@@ -1,0 +1,37 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <!-- <th scope="col">USer ID</th> -->
+        <th scope="col">Date</th>
+        <!-- <th scope="col">Handeled TO</th> -->
+        <th scope="col">Pاone</th>
+        <th scope="col">Shipping Adress</th>
+        <th scope="col">Total Sum</th>
+        <th scope="col">Items Count</th>
+        <th scope="col">Order</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of orders; let index = index">
+        <th scope="row">{{ index + 1 }}</th>
+        <!-- <td>{{ item[1].user }}</td> -->
+        <td>{{ item[1].date | date }}</td>
+        <!-- <td>{{ item[1].form.uname }}</td> -->
+        <td>{{ item[1].form.phone }}</td>
+        <td>{{ item[1].form.adress }} , {{ item[1].form.city }}</td>
+        <td>{{ item[1].totalSum | currency }}</td>
+        <td>{{ item[1].counter }}</td>
+        <td>
+          <span
+            class="w-100 d-flex"
+            *ngFor="let x of Object.entries(this.item[1].cart)"
+          >
+            {{ x[0] }} : {{ getQuant(x[1]) }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,61 @@
+@import "../../../styles.scss";
+#carouselExampleControls {
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include mediaQuery(mobile) {
+    height: 300px;
+  }
+  @include mediaQuery(small) {
+    height: 300px;
+  }
+  // .carousel-inner {
+  //   .carousel-item {
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     img,video {
+  //       height: 100%;
+  //       width: 100%;
+  //       object-fit: cover;
+  //       @include mediaQuery(mobile) {
+  //         height: fit-content;
+  //       }
+  //       @include mediaQuery(small) {
+  //         height: fit-content;
+  //       }
+  //     }
+  //   }
+  // }
+  .overlay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: black;
+    opacity: 0.4;
+  }
+  .content{
+    z-index: 100;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    .buttons{
+      a{
+        margin: 30px 10px 0;
+        opacity: 0.85;
+        padding: 7px 20px;
+      }
+    }
+
+  }
+}

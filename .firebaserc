@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-ecommerce": {
+      "hosting": {
+        "angular-ecommerce": [
+          "angular-ecommerce"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-ecommerce"
+  }
+}

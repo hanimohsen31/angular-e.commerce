@@ -1,0 +1,59 @@
+<nav>
+  <div class="container">
+    <a routerLink="home">
+      <img src="assets/images/logo.png" alt="" />
+    </a>
+    <ul class="midbarLinks">
+      <!-- list item -->
+      <li>
+        <a routerLink="home" routerLinkActive="active">Home</a>
+      </li>
+
+      <!-- list item -->
+      <li>
+        <a routerLink="store" routerLinkActive="active">Store</a>
+      </li>
+
+      <!-- list item -->
+      <li *ngIf="!isLoggedin">
+        <a routerLink="login" routerLinkActive="active">Sign in</a>
+      </li>
+
+      <!-- list item -->
+      <li *ngIf="isAdmin == 'true'">
+        <a routerLink="admin-product-form" routerLinkActive="active">Add&#160;Product</a>
+      </li>
+
+      <!-- list item -->
+      <li *ngIf="isAdmin == 'true'">
+        <a routerLink="app-admin-material-table" routerLinkActive="active">Admin&#160;table</a>
+      </li>
+      <li *ngIf="isAdmin == 'true'">
+        <a routerLink="admin-orders" routerLinkActive="active">Users&#160;orders</a>
+      </li>
+
+      <!-- list item -->
+      <!-- <li>
+        <a routerLink="check-out" >Check&#160;Out</a>
+      </li> -->
+
+      <!-- list item -->
+    </ul>
+    <ul class="icons">
+      <!-- list item -->
+      <li>
+        <a routerLink="search" routerLinkActive="active"><fa-icon [icon]="faSearch"></fa-icon></a>
+      </li>
+      <!-- list item -->
+      <li *ngIf="isLoggedin">
+        <a type="button" routerLink="cart" routerLinkActive="active">
+          <fa-icon [icon]="faOpencart"></fa-icon> {{ quantity }}
+        </a>
+      </li>
+      <!-- list item -->
+      <li *ngIf="isLoggedin">
+        <a routerLink="my-orders" routerLinkActive="active"><fa-icon [icon]="faUser"></fa-icon></a>
+      </li>
+    </ul>
+  </div>
+</nav>

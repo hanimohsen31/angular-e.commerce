@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <form [formGroup]="AddProduct" (ngSubmit)="submitAddProductForm(AddProduct)" class="col-sm-12 col-md-7">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input formControlName="title" type="text" class="form-control" id="title" />
+      </div>
+
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input formControlName="price" type="number" class="form-control" id="price" />
+      </div>
+
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select formControlName="category" type="text" class="form-control" id="category">
+          <option *ngFor="let cat of categories" value={{cat.value}}>{{cat.title}}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="imgurl" class="form-label">Image URL</label>
+        <input formControlName="imgurl" type="url" class="form-control" id="imgurl" />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <!-- <button mat-flat-button color="primary" type="submit">Submit</button> -->
+
+
+    </form>
+
+    <div class="card col-sm-12 col-md-4" >
+      <img *ngIf="AddProduct.value.imgurl" src={{AddProduct.value.imgurl}} >
+      <img  *ngIf="!AddProduct.value.imgurl" src="https://www.charlotteathleticclub.com/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png" >
+
+      <div class="card-body">
+        <h5 *ngIf="AddProduct.value.title" class="card-title">Title: {{AddProduct.value.title }}</h5>
+        <h5  *ngIf="!AddProduct.value.title" class="card-title">Title: Enter a Title</h5>
+
+        <p *ngIf="AddProduct.value.price" class="card-text">Price: {{AddProduct.value.price| currency }}</p>
+        <p *ngIf="!AddProduct.value.price" class="card-text">Price: Enter a Price</p>
+
+      </div>
+    </div>
+
+  </div>
+</div>

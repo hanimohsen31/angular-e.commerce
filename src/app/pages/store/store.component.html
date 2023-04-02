@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <aside class="col-md-4 col-lg-3 p-2">
+    <h3>Filter</h3>
+    <hr class="container" />
+    <ul>
+      <li>
+        <a
+          routerLink="/store"
+          class="list-group-item list-group-item-action"
+          [class.active]="!categorySelected"
+          aria-current="true"
+          (click)="filter()"
+        >
+          All Categories
+        </a>
+      </li>
+      <li *ngFor="let cat of categories">
+        <a
+          routerLink="/store"
+          [queryParams]="{ category: cat.title, value: cat.value }"
+          class="list-group-item list-group-item-action"
+          aria-current="true"
+          [class.active]="categorySelected == cat.value"
+          (click)="filter()"
+        >
+          {{ cat.title }}
+        </a>
+      </li>
+    </ul>
+  </aside>
+  <main class="col-md-6 col-lg-9 p-2">
+    <div *ngFor="let product of filterdArray" class="cardItem">
+      <div>
+        <img [src]="product[1].imgurl" class="" alt="..." />
+        <div class="text">
+          <h5>{{ product[1].title }}</h5>
+          <p>{{ product[1].price | currency }}</p>
+        </div>
+        <div class="infos">
+          <!-- <p>{{ getItemQuantity(product) }}</p> -->
+          <!-- <button
+            (click)="useDeleteFromCart(product); notification('delete')"
+            class="btn btn-outline-danger upper w-100"
+          >
+            Remove From Cart
+          </button> -->
+          <a (click)="viewDetaisl(product)" style="cursor: pointer;">
+            <fa-icon [icon]="faEye"></fa-icon>
+          </a>
+          <button *ngIf="isLoggedIn" (click)="useAddToCart(product); notification('add')">
+            <fa-icon [icon]="faCartPlus"></fa-icon>
+          </button>
+
+          <a *ngIf="!isLoggedIn" routerLink="/login">
+            <fa-icon [icon]="faCartPlus"></fa-icon>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<h1
+  class="notification"
+  [style.backgroundColor]="notificationColor"
+  *ngIf="notificationShown"
+>
+  {{ notificationContent }}
+</h1>

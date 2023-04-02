@@ -1,0 +1,65 @@
+<app-hero></app-hero>
+<div class="container">
+  <!-- icon and text -->
+  <div class="iconsAndTextWrapper">
+    <div class="iconsAndText" *ngFor="let item of iconsAndText">
+      <img [src]="item.icon" alt="" />
+      <h3>{{ item.text }}</h3>
+    </div>
+  </div>
+  <!-- heading -->
+  <div class="headingWrapper">
+    <h2>We are Glad to Surprise You</h2>
+    <p>Do not wait for tomorrow - start a new life today</p>
+  </div>
+  <!-- category -->
+  <div class="categoriesWrapper">
+    <a
+      *ngFor="let item of categories"
+      routerLink="/store"
+      [queryParams]="{ category: item.title, value: item.value }"
+    >
+      <app-category
+        [img]="item.img"
+        [title]="item.title"
+        [description]="item.description"
+      ></app-category>
+    </a>
+  </div>
+</div>
+<!-- slider -->
+<app-slider></app-slider>
+<div class="container">
+  <!-- heading -->
+  <div class="headingWrapper">
+    <h2>Popular Products</h2>
+  </div>
+  <!-- products -->
+  <div class="productsWrapper">
+    <app-product
+      *ngFor="let item of initialProducts?.slice(0, 8)"
+      [img]="item[1]?.imgurl"
+      [title]="item[1]?.title"
+      [prcie]="item[1]?.price"
+      [product]="item"
+    ></app-product>
+  </div>
+  <!-- payment -->
+  <div class="paymentWrapper">
+    <div class="ico">
+      <img src="assets/images/pay1.png" alt="" />
+      <div class="text">
+        <h1>Free Shipping</h1>
+        <p>Free shipping on all US order or order above $49</p>
+      </div>
+    </div>
+
+    <div class="ico">
+      <img src="assets/images/pay2.png" alt="" />
+      <div class="text">
+        <h1>Payment</h1>
+        <p>Credit Card: Visa, MasterCard, Maestro, American Express.</p>
+      </div>
+    </div>
+  </div>
+</div>

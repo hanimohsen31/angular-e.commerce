@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="section1">
+    <h1>Shipping</h1>
+    <form [formGroup]="AddedProduct" (ngSubmit)="submitAddProductForm(AddedProduct)">
+      <!-- field -->
+      <div class="mb-3">
+        <label for="uname" class="form-label">Name</label>
+        <input required="true" formControlName="uname" type="uname" class="form-control" id="uname" />
+      </div>
+      <!-- field -->
+      <div class="mb-3">
+        <label for="adress" class="form-label">Adress</label>
+        <input required="true" formControlName="adress" type="adress" class="form-control" id="adress" />
+      </div>
+      <!-- field -->
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input required="true" formControlName="phone" type="phone" class="form-control" id="phone" />
+      </div>
+      <!-- field -->
+      <div class="mb-3">
+        <label for="city" class="form-label">City</label>
+        <input required="true" formControlName="city" type="city" class="form-control" id="city" />
+      </div>
+      <!-- submit -->
+      <button class="bg-light py-3 px-4">Place Order</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title">Order Summury</h1>
+      <h4>you have {{counter}} items in your shopping cart.</h4>
+      <hr>
+      <div class="item" *ngFor="let item of showingArray" >
+        <span> {{item[1].quantity}} x {{item[1].product.title}}</span>
+        <span>{{item[1].quantity * item[1].product.price | currency}}</span>
+      </div>
+      <hr>
+      <div class="total">
+        <span>Total</span>
+        <span>{{sum | currency}}</span>
+      </div>
+    </div>
+  </div>
+
+</div>
