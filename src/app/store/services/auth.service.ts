@@ -24,7 +24,7 @@ export class AuthService implements OnInit {
   constructor(
     private _AngularFireAuth: AngularFireAuth,
     private _HttpClient: HttpClient,
-    private _Router:Router
+    private _Router: Router
   ) {}
 
   ngOnInit(): void {
@@ -43,17 +43,18 @@ export class AuthService implements OnInit {
       // get admin
       this.checkAdmin().subscribe({
         next: (response: any) => {
-          response.map((elm: any) => {
-            if (elm == email) {
-              localStorage.setItem('isAdmin', 'true');
-              this.isLoggedin();
-              this.isAdmin()
-            }
-          });
+          if (response) {
+            response.map((elm: any) => {
+              if (elm == email) {
+                localStorage.setItem('isAdmin', 'true');
+                this.isLoggedin();
+                this.isAdmin();
+              }
+            });
+          }
         },
       });
     }
-
   }
 
   checkAdmin() {

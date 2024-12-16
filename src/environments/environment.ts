@@ -4,24 +4,26 @@
 
 export const environment = {
   firebase: {
-    apiKey: "AIzaSyDXLC3XMBPBJ9zRK6-tKovGmZn-zsMqMmw",
-    authDomain: "angular-ecommerce-300.firebaseapp.com",
-    projectId: "angular-ecommerce-300",
-    storageBucket: "angular-ecommerce-300.appspot.com",
-    messagingSenderId: "729718172495",
-    appId: "1:729718172495:web:5b78fdb3f5ba4df746f33a"
+    apiKey: "AIzaSyBs8B2jSQcCwZe7Uz0lP9GGiW7ZaFb-F1w",
+    authDomain: "collection-5000.firebaseapp.com",
+    databaseURL: "https://collection-5000-default-rtdb.firebaseio.com",
+    projectId: "collection-5000",
+    storageBucket: "collection-5000.firebasestorage.app",
+    messagingSenderId: "1071454138267",
+    appId: "1:1071454138267:web:574e3f065fc4b427c3fb3e"
   },
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyDXLC3XMBPBJ9zRK6-tKovGmZn-zsMqMmw",
-    authDomain: "angular-ecommerce-300.firebaseapp.com",
-    projectId: "angular-ecommerce-300",
-    storageBucket: "angular-ecommerce-300.appspot.com",
-    messagingSenderId: "729718172495",
-    appId: "1:729718172495:web:5b78fdb3f5ba4df746f33a"
+    apiKey: "AIzaSyBs8B2jSQcCwZe7Uz0lP9GGiW7ZaFb-F1w",
+    authDomain: "collection-5000.firebaseapp.com",
+    databaseURL: "https://collection-5000-default-rtdb.firebaseio.com",
+    projectId: "collection-5000",
+    storageBucket: "collection-5000.firebasestorage.app",
+    messagingSenderId: "1071454138267",
+    appId: "1:1071454138267:web:574e3f065fc4b427c3fb3e"
   },
   database: {
-    url: 'https://angular-ecommerce-300-default-rtdb.firebaseio.com/',
+    url: 'https://collection-5000-default-rtdb.firebaseio.com/angularEcommerce',
   },
 };
 

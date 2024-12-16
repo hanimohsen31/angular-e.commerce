@@ -1,14 +1,16 @@
 {
+  "projects": {
+    "default": "collection-5000"
+  },
   "targets": {
-    "angular-ecommerce": {
+    "collection-5000": {
       "hosting": {
-        "angular-ecommerce": [
-          "angular-ecommerce"
+        "angular-ecommerce-100": [
+          "angular-ecommerce-100"
         ]
       }
     }
   },
-  "projects": {
-    "default": "angular-ecommerce"
-  }
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

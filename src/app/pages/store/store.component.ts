@@ -4,7 +4,11 @@ import { CartService } from './../../store/services/cart.service';
 import { CategoriesService } from './../../admin/admin-services/categories.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
-import { faCaretSquareLeft, faCaretSquareRight, faEye } from '@fortawesome/free-regular-svg-icons';
+import {
+  faCaretSquareLeft,
+  faCaretSquareRight,
+  faEye,
+} from '@fortawesome/free-regular-svg-icons';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -12,8 +16,6 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.scss'],
 })
-
-
 export class StoreComponent implements OnInit {
   userId: any;
   initialProducts: any;
@@ -27,18 +29,18 @@ export class StoreComponent implements OnInit {
   notificationColor = '';
 
   // icons
-  faCartPlus = faCartPlus
-  faEye = faEye
+  faCartPlus = faCartPlus;
+  faEye = faEye;
 
   // is logged in
-  isLoggedIn = localStorage.getItem("currentUserData")
+  isLoggedIn = localStorage.getItem('currentUserData');
 
   constructor(
     private _ProductsService: ProductsService,
     private _CartService: CartService,
     private _CategoriesService: CategoriesService,
     private _ActivatedRoute: ActivatedRoute,
-    private _Router:Router
+    private _Router: Router
   ) {}
 
   notification(text: string) {
@@ -62,22 +64,24 @@ export class StoreComponent implements OnInit {
     // get products
     this._ProductsService.getproducts().subscribe({
       next: (response) => {
-        this.initialProducts = Object.entries(response);
-        // ------------------------------------------
-        // get selected
-        this._ActivatedRoute.queryParamMap.subscribe({
-          next: (response) => {
-            if (response.get('value')) {
-              this.categorySelected = response.get('value');
-              this.filterdArray = this.initialProducts.filter((elm: any) => {
-                return elm[1].category == this.categorySelected;
-              });
-            } else {
-              this.categorySelected = '';
-              this.filterdArray = this.initialProducts;
-            }
-          },
-        });
+        if (response) {
+          this.initialProducts = Object.entries(response);
+          // ------------------------------------------
+          // get selected
+          this._ActivatedRoute.queryParamMap.subscribe({
+            next: (response) => {
+              if (response.get('value')) {
+                this.categorySelected = response.get('value');
+                this.filterdArray = this.initialProducts.filter((elm: any) => {
+                  return elm[1].category == this.categorySelected;
+                });
+              } else {
+                this.categorySelected = '';
+                this.filterdArray = this.initialProducts;
+              }
+            },
+          });
+        }
       },
     });
 
@@ -142,8 +146,8 @@ export class StoreComponent implements OnInit {
     { icon: 'assets/images/ico4.png', text: 'Cheaply' },
   ];
 
-  viewDetaisl(product:any){
-    console.log(product)
+  viewDetaisl(product: any) {
+    console.log(product);
     // this._Router.navigate(['/product-details', product[1].imgurl.slice(27,-4)]);
     this._Router.navigate(['/product-details', product[0]]);
   }

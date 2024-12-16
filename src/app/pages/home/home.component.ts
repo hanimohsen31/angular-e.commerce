@@ -54,9 +54,11 @@ export class HomeComponent implements OnInit {
     // get products
     this._ProductsService.getproducts().subscribe({
       next: (response) => {
-        this.initialProducts = Object.entries(response);
-        this.filterdArray = Object.entries(response);
-        // console.log(this.initialProducts.slice(0, 8));
+        if(response){
+          this.initialProducts = Object.entries(response);
+          this.filterdArray = Object.entries(response);
+          // console.log(this.initialProducts.slice(0, 8));
+        }
       },
     });
 
